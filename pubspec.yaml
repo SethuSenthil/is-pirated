@@ -1,8 +1,8 @@
 name: is_pirated
 description: Check if your app is installed from an unauthorised source
 version: 0.1.0
-homepage:
-repository:
+homepage: https://github.com/SethuSenthil/is-pirated
+repository: https://github.com/SethuSenthil/is-pirated
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
