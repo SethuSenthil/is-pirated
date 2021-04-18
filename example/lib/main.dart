@@ -26,6 +26,14 @@ class _MyAppState extends State<MyApp> {
     IsPirated isPirated;
     try {
       isPirated = await getIsPirated(debugOverride: false);
+
+      //full example
+      /*isPirated = await getIsPirated(
+          debugOverride: true,
+          openStoreListing: true,
+          appStoreId: '546532666',
+          playStoreIdentifier: 'tikmoji.sethusenthil.com',
+          closeApp: true);*/
     } on PlatformException {}
 
     if (!mounted) return;
@@ -38,12 +46,15 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Is Pirated'),
+          title: const Text('Is Pirated 🏴‍☠️'),
         ),
         body: Center(
           child: Text(
-            'This app is $isPirated',
+            'This app is ${isPirated?.status == false ? "NOT " : ""}pirated',
             textAlign: TextAlign.center,
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: isPirated?.status == true ? Colors.red : Colors.green),
           ),
         ),
       ),

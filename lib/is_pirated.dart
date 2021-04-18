@@ -15,6 +15,7 @@ const _channel = MethodChannel('com.sethusenthil.is_pirated');
 Future<IsPirated?> getIsPirated({
   bool? debugOverride,
   bool? openStoreListing,
+  bool? closeApp,
   String? appStoreId,
   String? playStoreIdentifier,
 }) async {
@@ -24,8 +25,9 @@ Future<IsPirated?> getIsPirated({
   //Return True if installed WITHOUT proper store autherositaion
   //Retuns False if installed through proper app store
 
-  if (debugOverride == null) debugOverride = false;
-  if (openStoreListing == null) openStoreListing = false;
+  debugOverride ??= false;
+  openStoreListing ??= false;
+  closeApp ??= false;
 
   if (installerName == null &&
       (debugOverride ? Foundation.kReleaseMode : true)) {
@@ -40,6 +42,8 @@ Future<IsPirated?> getIsPirated({
         launch("https://play.google.com/store/apps/details?id=" +
             playStoreIdentifier);
     }
+
+    if (closeApp) exit(0);
   }
 
   return IsPirated(isItPirated);
@@ -47,11 +51,11 @@ Future<IsPirated?> getIsPirated({
 
 class IsPirated {
   /// The installer package name, as returned by the platform
-  final bool isPirated;
+  final bool status;
 
   /// Bool value based on [installerName]
 
-  IsPirated(this.isPirated);
+  IsPirated(this.status);
 }
 
 /// Trusted installers

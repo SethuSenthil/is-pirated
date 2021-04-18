@@ -10,7 +10,7 @@ void main() {
   setUp(() {
     channel.setMockMethodCallHandler((MethodCall methodCall) async {
       if (methodCall.method == 'getIsPirated') {
-        return 'com.android.vending';
+        return false;
       }
     });
   });
@@ -20,8 +20,7 @@ void main() {
   });
 
   test('getIsPirated', () async {
-    final installerInfo = await getIsPirated();
-    expect(installerInfo!.installerName, 'com.android.vending');
-    expect(installerInfo.installer, Installer.googlePlay);
+    final isPirated = await getIsPirated();
+    expect(isPirated!.status is bool, true);
   });
 }
