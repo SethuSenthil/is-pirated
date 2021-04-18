@@ -1,6 +1,6 @@
 name: is_pirated
 description: Check if your app is installed from an unauthorized source
-version: 0.1.0
+version: 0.1.1
 homepage: https://github.com/SethuSenthil/is-pirated
 repository: https://github.com/SethuSenthil/is-pirated
 
