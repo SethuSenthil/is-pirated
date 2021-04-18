@@ -1,0 +1,22 @@
+PODS:
+  - Flutter (1.0.0)
+  - is_pirated (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - is_pirated (from `.symlinks/plugins/is_pirated/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  is_pirated:
+    :path: ".symlinks/plugins/is_pirated/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
+  is_pirated: c9171e7c059043981ac610dc5f5e6868fdd5eb2a
+
+PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
+
+COCOAPODS: 1.10.1
