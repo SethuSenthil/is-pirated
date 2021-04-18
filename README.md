@@ -1,4 +1,4 @@
-# is_pirated
+# is_pirated 🏴‍☠️
 Check if your app is installed from an unauthorised source
 
 On Android API 29 and below, uses `Context.getInstallerPackageName()`
@@ -44,7 +44,7 @@ IsPirated isPirated = await getIsPirated(debugOverride: true, openStoreListing: 
 | **appStoreId** | **String** <br>The AppStore App Id for your app so openStoreListing can open your store listing. You can find it in the url of your app: 'https://apps.apple.com/us/app/tikmoji/id**1546532666**' Must set openStoreListing true.                                                                                                                                                                                                                                                                                                                           |
 | **playStoreIdentifier** | **String** <br>The PlayStore App Store Identifier for your app so it can open your listing on the PlayStore. You can find this in your manifest or your PlayStore URL: https://play.google.com/store/apps/details?id=**com.sethusenthil.tikmoji**                                                                                                                                                                                                                                                                                                                           |
 | **closeApp** | **bool** <br>Default set to false. Closes and quits out of your app if isPirated.status = true. If openStoreListing is set to true, it will open your store listing before quitting. Note that getIsPirated() may not return a value if set to true because the Dart VM will likely be terminated before.                                                                                                                                                                                                                                                                                                                          |                                                                                                                                                                                                                                                                           |
-
+## https://pub.dev/packages/is_pirated
 
 ## Credits
 Inspired and heavely based on https://github.com/caiopo/flutter-installer-info
