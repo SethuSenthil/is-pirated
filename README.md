@@ -27,8 +27,8 @@ Example
 IsPirated isPirated = await getIsPirated();
 
 print(isPirated.status);
-// true - (iOS) if installed from AppStore or TestFlight, (Android) if installed from PlayStore
-// false - if installed without authorization or receipt (Via ABD, APK, IPA)
+// false - (iOS) if installed from AppStore or TestFlight, (Android) if installed from PlayStore
+// true - if installed without authorization or receipt (Via ABD, APK, IPA)
 
 //full example
 IsPirated isPirated = await getIsPirated(debugOverride: true, openStoreListing: true, appStoreId: '546532666', playStoreIdentifier: 'tikmoji.sethusenthil.com');
