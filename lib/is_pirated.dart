@@ -29,8 +29,28 @@ Future<IsPirated?> getIsPirated({
   openStoreListing ??= false;
   closeApp ??= false;
 
-  if (installerName == null &&
-      (debugOverride ? Foundation.kReleaseMode : true)) {
+// Installers whitelist
+  const installers = [
+    // Android
+    'com.android.vending',
+
+    // iOS
+    'com.apple.AppStore',
+    'com.apple.TestFlight',
+    'com.apple.CoreSimulator',
+  ];
+
+  bool validInstaller = false;
+
+  if (installerName != null) {
+    installers.forEach((installer) {
+      if (installerName == installer) {
+        validInstaller = true;
+      }
+    });
+  }
+
+  if (!validInstaller && (debugOverride ? Foundation.kReleaseMode : true)) {
     isItPirated = true;
 
     if (openStoreListing) {
@@ -57,25 +77,3 @@ class IsPirated {
 
   IsPirated(this.status);
 }
-
-/// Trusted installers
-enum Installer {
-  // Android
-  googlePlay,
-
-  // iOS
-  appStore,
-  testFlight,
-  simulator,
-}
-
-// Installers whitelist
-const _installerNames = {
-  // Android
-  'com.android.vending': Installer.googlePlay,
-
-  // iOS
-  'com.apple.AppStore': Installer.appStore,
-  'com.apple.TestFlight': Installer.testFlight,
-  'com.apple.CoreSimulator': Installer.simulator,
-};

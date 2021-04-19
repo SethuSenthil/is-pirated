@@ -1,6 +1,6 @@
 name: is_pirated
-description: Check if your app is installed from an unauthorized source
-version: 0.1.1
+description: Check and handle if your app is installed from an unauthorized source. Provides tolling to auto terminate app & open store listing
+version: 0.2.0
 homepage: https://github.com/SethuSenthil/is-pirated
 repository: https://github.com/SethuSenthil/is-pirated
 
