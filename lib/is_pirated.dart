@@ -22,7 +22,7 @@ Future<IsPirated?> getIsPirated({
   final installerName = await _channel.invokeMethod('getIsPirated');
 
   bool isItPirated = false;
-  //Return True if installed WITHOUT proper store autherositaion
+  //Return True if installed WITHOUT proper store authorisation
   //Retuns False if installed through proper app store
 
   debugOverride ??= false;
@@ -55,10 +55,12 @@ Future<IsPirated?> getIsPirated({
 
     if (openStoreListing) {
       if (Platform.isIOS && appStoreId != null) {
+        // Checks to see if ID is a valid app ID
         if (appStoreId.startsWith("id")) appStoreId = appStoreId.split("id")[1];
         launch('https://apps.apple.com/app/id' + appStoreId);
       }
       if (Platform.isAndroid && playStoreIdentifier != null)
+        // Checks to see if ID is a valid app ID
         launch("https://play.google.com/store/apps/details?id=" +
             playStoreIdentifier);
     }
