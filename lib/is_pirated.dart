@@ -56,11 +56,14 @@ Future<IsPirated?> getIsPirated({
     if (openStoreListing) {
       if (Platform.isIOS && appStoreId != null) {
         if (appStoreId.startsWith("id")) appStoreId = appStoreId.split("id")[1];
-        launch('https://apps.apple.com/app/id' + appStoreId);
+        launchUrl(Uri.parse('https://apps.apple.com/app/id' + appStoreId),
+            mode: LaunchMode.externalApplication);
       }
       if (Platform.isAndroid && playStoreIdentifier != null)
-        launch("https://play.google.com/store/apps/details?id=" +
-            playStoreIdentifier);
+        launchUrl(
+            Uri.parse("https://play.google.com/store/apps/details?id=" +
+                playStoreIdentifier),
+            mode: LaunchMode.externalApplication);
     }
 
     if (closeApp) exit(0);
